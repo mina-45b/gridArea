@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cause:wght@100..900&family=Cherry+Bomb+One&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Cause:wght@100..900&family=Pirata+One&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +15,8 @@ body {
 
     font-size: clamp(1rem, 2.5vw, 1.5rem); 
     font-family: "Cause", cursive;
+
+    background-color: #590404;
 }
 
 
@@ -20,7 +24,7 @@ body {
     display: grid;
     grid-template-areas: "header header header header header" "nav nav nav nav nav" "content content content content aside" "footer footer footer footer footer";
     grid-template-columns: repeat(5, 20%);
-    grid-template-rows: auto auto auto auto;
+    /* grid-template-rows: auto auto auto auto; */
 }
 
 .header {
@@ -35,18 +39,16 @@ body {
     /* background-color: #0476d92d; 
     background-color: #6204bf63; */
 
-    background-color: #590404;
+    
 
-    font-family: "Cherry Bomb One", system-ui;
+    font-family: "Pirata One", system-ui;
 }
 
 .nav {
     grid-area: nav;
     padding: .5em 0;
 
-    background-color: #590404;
-
-    font-family: "Cherry Bomb One", system-ui;
+    font-family: "Pirata One", system-ui;
 }
 
 .nav ul {
@@ -61,6 +63,31 @@ body {
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
+
+.glitch-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+ }
+ 
+ .glitch {
+    position: relative;
+    z-index: 1;
+    animation: shift 4s ease-in-out infinite alternate;
+    transform: skewX(0deg);
+ }
+ 
+ @keyframes shift {
+    0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% { transform: skewX(0deg); }
+    41% { transform: skewX(10deg); }
+    42% { transform: skewX(-10deg); }
+    59% { transform: skewX(35deg) skewY(10deg); }
+    60% { transform: skewX(-35deg) skewY(-10deg); }
+    63% { transform: skewX(10deg) skewY(-5deg); }
+    70% { transform: skewX(-30deg) skewY(-20deg); }
+    71% { transform: skewX(10deg) skewY(-10deg); }
+ }
 
 .content {
     grid-area: content;
@@ -77,6 +104,8 @@ body {
 
 .article h2 {
     margin: 2% auto;
+
+    font-family: "Pirata One", system-ui;
   
 }
 
@@ -147,6 +176,7 @@ body {
 
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.945);
     border-radius: 1em;
+    font-family: "Pirata One", system-ui;
 
 }
 
@@ -174,9 +204,11 @@ hr {
 .aside marquee {
     padding: .5em auto;
 
-    font-size: clamp(.6rem, 1.5vw, 1rem); 
+    font-size: clamp(1.5rem, 1vw, 1.5rem); 
+    font-family: "Pirata One", system-ui;
 
 }
+
 
 .contenedor-formulario {
     margin: 1em auto;
@@ -191,6 +223,9 @@ hr {
 .formulario .input {
     width: 100%;
     height: 2em;
+    border-radius: 10px;
+    padding: 5px;
+
 }
 
 .formulario .boton-buscar {
@@ -199,6 +234,7 @@ hr {
 
 .aside ul {
     list-style-type: none;
+    margin-left: 1em;
 }
 
 .aside ul li {
@@ -224,7 +260,6 @@ hr {
 
     /* background-color: #0476d92d; */
 
-    background-color: #590404;
 }
 
 .footer .social {
@@ -240,10 +275,73 @@ hr {
 
 .footer p {
     font-size: .80em;
+    margin: 1em;
 }
 
 .footer p a {
     text-decoration: none;
     color: rgb(255, 255, 255);
+}
+
+/* Ocultamos el elemento completamente del esquema con display:none, con visibility si se oculta a la vista pero existe dentro del esquema abajo siguiendo el flujo */
+.contactos {
+    /* visibility: hidden; */
+    display: none;
+}
+
+/* media query */
+@media screen and (max-width: 768px) {
+    body {
+        background-color: #020659 ;
+    }
+    marquee {
+        font-size: 2rem;
+    }
+
+    .container {
+        display: grid;
+        grid-template-areas: "header header header header header"
+      "nav nav nav nav nav" "content content content content content" "aside aside aside aside aside" "footer footer footer footer footer";
+        grid-template-columns: repeat(5, 20%);
+        /* grid-template-rows: auto auto auto auto; */
+    }
+
+
+    .contactos {
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+        gap: 1.5em;
+        
+    }
+    
+    .contactos a  {
+        color: rgb(255, 255, 255);
+    }
+    
+
+    .aside {
+        background-color: #0455BF;
+    }
+
+    .contenedor-formulario {
+        width: 100%;
+        margin: 1em auto;
+    }
+
+    .formulario .input {
+        width: 100%;
+        height: 3em;
+        border-radius: 10px;
+        padding: 5px;
+    
+    }
+
+    .formulario .boton-buscar {
+        width: 3em;
+        height: 3em;
+        padding: .3em;
+    }
+    
 }
 
