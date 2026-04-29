@@ -65,7 +65,7 @@ body {
 .content {
     grid-area: content;
 
-    background: url(https://images.pexels.com/photos/12668875/pexels-photo-12668875.jpeg) no-repeat center center / cover fixed;
+    background: url(https://images.pexels.com/photos/12668875/pexels-photo-12668875.jpeg) no-repeat center center / cover;
 }
 
 .article {
